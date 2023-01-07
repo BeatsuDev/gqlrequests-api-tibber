@@ -1,6 +1,6 @@
 from gqlrequests.query import Query
 
-from src.gqlrequests_api_tibber import RootQuery
+from gqlrequests_api_tibber import RootQuery
 
 
 def test_viewer():
