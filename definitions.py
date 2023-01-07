@@ -193,6 +193,11 @@ class Viewer:
     websocketSubscriptionUrl: str
 
 
+@dataclass
+class RootQuery:
+    viewer: Viewer
+
+
 # Method return types
 @dataclass
 class HomeConsumptionEdge:
@@ -221,6 +226,12 @@ class HomeProductionConnection:
 
 
 # Mutations
+@dataclass
+class RootMutation:
+    sendMeterReading: MeterReadingResponse
+    updateHome: Home
+    sendPushNotification: PushNotificationResponse
+
 @dataclass
 class MeterReadingResponse:
     homeId: str
@@ -262,6 +273,11 @@ class PushNotificationResponse:
 
 
 # Subscriptions
+@dataclass
+class RootSubscription:
+    liveMeasurement: LiveMeasurement
+    testMeasurement: LiveMeasurement
+
 @dataclass
 class LiveMeasurement:
     timestamp: str
