@@ -1,0 +1,27 @@
+# Run pytests
+name: Pytests
+
+on: [push, pull_request]
+
+jobs:
+  pytests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python-version: [3.7, 3.9, 3.11]
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install testing dependencies
+        run: |
+          pip install --upgrade pip
+          pip install pytest
+
+      - name: Run pytest
+        run: python -m pytest tests.py
