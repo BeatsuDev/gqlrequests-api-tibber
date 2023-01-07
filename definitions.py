@@ -121,7 +121,7 @@ class LegalEntity:
     name: str
     middleName: str
     lastName: str
-    orgnaizationNo: str
+    organizationNo: str
     language: str
     contactInfo: ContactInfo
     address: Address
@@ -178,7 +178,7 @@ class Home:
     address: Address
     owner: LegalEntity
     meteringPointData: MeteringPointData
-    currentSubscription: str
+    currentSubscription: Subscription
     subscriptions: List[Subscription]
     features: HomeFeatures
 
