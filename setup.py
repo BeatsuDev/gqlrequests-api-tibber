@@ -13,7 +13,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=["definitions"],
-    install_requires=["gqlrequests==0.0.4"],
+    install_requires=[],
     license="MIT",
     version=__version__,
     description="A Python library for making GraphQL requests easier!",
