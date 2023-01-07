@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 from typing import List
 
+__version__ = "0.0.1"
+
 
 @dataclass
 class Address:
@@ -227,12 +229,6 @@ class HomeProductionConnection:
 
 # Mutations
 @dataclass
-class RootMutation:
-    sendMeterReading: MeterReadingResponse
-    updateHome: Home
-    sendPushNotification: PushNotificationResponse
-
-@dataclass
 class MeterReadingResponse:
     homeId: str
     time: str
@@ -272,12 +268,14 @@ class PushNotificationResponse:
     pushedToNumberOfDevices: int
 
 
-# Subscriptions
 @dataclass
-class RootSubscription:
-    liveMeasurement: LiveMeasurement
-    testMeasurement: LiveMeasurement
+class RootMutation:
+    sendMeterReading: MeterReadingResponse
+    updateHome: Home
+    sendPushNotification: PushNotificationResponse
 
+
+# Subscriptions
 @dataclass
 class LiveMeasurement:
     timestamp: str
@@ -306,3 +304,9 @@ class LiveMeasurement:
     currentL2: float
     currentL3: float
     signalStrength: int
+
+
+@dataclass
+class RootSubscription:
+    liveMeasurement: LiveMeasurement
+    testMeasurement: LiveMeasurement
